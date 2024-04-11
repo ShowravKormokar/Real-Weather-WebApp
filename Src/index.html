@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this in the <head> section of your HTML document -->
+    <link rel="icon" type="image/png" href="default_icon.png" id="favicon">
+    <!-- CSS style link -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>The Weather</title>
+</head>
+
+<body>
+    <div class="weather-app">
+        <div class="container">
+            <h3 class="brand">The Weather</h3>
+            <div>
+                <h1 class="temp">
+                    16&#176;
+                </h1>
+                <div class="city-time">
+                    <h1 class="name">London</h1>
+                    <small>
+                        <span class="time">06:09</span>- <span class="date">Monday Sep 19</span>
+                    </small>
+                </div>
+
+                <div class="weather">
+                    <img src="../icons/day/113.png" alt="" class="icon" width="50" height="50">
+                    <span class="condition">Cloudy</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <form id="locationInput">
+                <input type="text" placeholder="Search Location..." class="search">
+                <button type="submit" class="submit"><span class="material-symbols-outlined">
+                        search
+                    </span></button>
+            </form>
+            <ul class="cities">
+                <li class="city">Bangladesh</li>
+                <li class="city">India</li>
+                <li class="city">New York</li>
+                <li class="city">Paris</li>
+                <li class="city">Tokyo</li>
+            </ul>
+
+            <ul class="details">
+                <h4>Weather Details</h4>
+                <li>
+                    <span>Cloudy</span>
+                    <span class="cloud">89%</span>
+                </li>
+                <li>
+                    <span>Humidity</span>
+                    <span class="humidity">69%</span>
+                </li>
+                <li>
+                    <span>Wind</span>
+                    <span class="wind">8km/h</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
