@@ -92,7 +92,7 @@ function fetchWeatherData() {
             humidityOutput.innerHTML = data.current.humidity + "%";
             windOutput.innerHTML = data.current.wind_kph + "km/h";
 
-            let timeOfDay = "Day";
+            let timeOfDay = "day";
             const code = data.current.condition.code;
             if (!data.current.is_day) {
                 timeOfDay = "night";
