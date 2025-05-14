@@ -58,6 +58,14 @@ function dayOfTheWeek(day, month, year) {
     return weekday[new Date(year, month - 1, day).getDay()];
 };
 
+function getMonthName(month) {
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    return months[month - 1]; // Subtract 1 because months are 1-12
+}
+
 
 // Function that fetches and displays the data from the weather API
 function fetchWeatherData() {
@@ -78,7 +86,7 @@ function fetchWeatherData() {
             const d = parseInt(date.substr(8, 2));
             const time = date.substr(11);
 
-            dateOutput.innerHTML = `${dayOfTheWeek(d, m, y)} ${d}, ${m} ${y}`;
+            dateOutput.innerHTML = `${dayOfTheWeek(d, m, y)} ${d}, ${getMonthName(m)} ${y}`;
             timeOutput.innerHTML = time;
             nameOutput.innerHTML = data.location.name;
 
