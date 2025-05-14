@@ -78,11 +78,16 @@ h4 {
 
 .weather img {
     display: block;
-    margin: 0.5em 0;
+    margin: 0.5em 0 0 0;
 }
 
 .weather {
     flex-direction: column;
+    background: rgba(110, 110, 110, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 2px;
+    padding-bottom: 2px;
 }
 
 .panel {
