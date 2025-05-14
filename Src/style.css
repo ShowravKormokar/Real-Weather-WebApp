@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: 'Rubik', sans-serif;
     background: #111;
+    overflow-x: hidden;
 }
 
 * {
@@ -9,8 +10,10 @@ body {
 }
 
 h1,
-h3 {
+h3,
+h4 {
     font-weight: 400;
+    margin: 0;
 }
 
 .weather-app {
@@ -23,7 +26,8 @@ h3 {
     position: relative;
     transition: 500ms;
     opacity: 1;
-
+    display: flex;
+    flex-direction: column;
 }
 
 .weather-app::before {
@@ -38,38 +42,37 @@ h3 {
 }
 
 .container {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
-    padding: 2em 3em 4em 3em;
+    padding: 2em;
+    position: relative;
+    z-index: 1;
 }
 
 .container div {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .city-time,
 .temp,
 .weather {
-    margin: 0 1.5em;
+    margin: 0.5em;
 }
 
 .city-time h1 {
-    margin: 0 1em 0 0;
-    margin-bottom: 0.2em;
-    font-size: 3em;
+    margin: 0 0.5em 0.2em 0;
+    font-size: 2.5em;
 }
 
 .temp {
-    font-size: 7em;
+    font-size: 5em;
     margin: 0;
 }
 
@@ -78,38 +81,40 @@ h3 {
     margin: 0.5em 0;
 }
 
+.weather {
+    flex-direction: column;
+}
+
 .panel {
-    position: absolute;
-    width: 32%;
-    height: 100%;
-    top: 0;
-    right: 0;
+    width: 100%;
     background: rgba(110, 110, 110, 0.25);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     z-index: 1;
-    padding: 3em 2em;
-    overflow-y: scroll;
+    padding: 2em;
+    overflow-y: auto;
 }
 
 .panel form {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
+    position: relative;
+    width: 100%;
 }
 
 .submit {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 1.2em;
+    padding: 1em;
     margin: 0;
     border: none;
     outline: none;
     background: #fa6d1b;
     color: #fff;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1em;
     transition: 0.4s;
 }
 
@@ -122,10 +127,10 @@ h3 {
     background: none;
     border: none;
     border-bottom: 1px #ccc solid;
-    padding: 0 1em 0.5em 0;
-    width: 80%;
+    padding: 0.8em 2.5em 0.8em 0;
+    width: 100%;
     color: #fff;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .search:focus {
@@ -138,22 +143,24 @@ h3 {
 
 .panel ul {
     padding: 0 0 1em 0;
-    margin: 2em 0;
+    margin: 1.5em 0;
     border-bottom: 1px #ccc solid;
 }
 
 .panel ul li {
     color: #ccc;
-    margin: 2.5em 0;
+    margin: 1.5em 0;
+    list-style-type: none;
 }
 
 .panel ul h4 {
-    margin: 3em 0;
+    margin: 1.5em 0;
 }
 
 .city {
     display: block;
     cursor: pointer;
+    padding: 0.5em 0;
 }
 
 .city:hover {
@@ -167,20 +174,25 @@ h3 {
 }
 
 /* ------Responsive Design---------- */
-
-@media screen and (max-width: 800px) {
-
-    .panel,
-    .container {
-        position: relative;
-        width: 100%;
-        top: initial;
+@media screen and (min-width: 768px) {
+    .weather-app {
+        flex-direction: row;
     }
-}
 
-@media screen and (max-width: 500px) {
-    html {
-        font-size: 12px;
+    .container {
+        width: 65%;
+        padding: 3em;
+    }
+
+    .panel {
+        width: 35%;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .city-time h1 {
+        font-size: 3em;
     }
 
     .temp {
@@ -188,9 +200,60 @@ h3 {
     }
 }
 
-@media screen and (max-width: 300px) {
-    .weather-app {
-        min-height: 40em;
+@media screen and (min-width: 992px) {
+    .container {
+        width: 70%;
     }
 
+    .panel {
+        width: 30%;
+    }
+
+    .city-time h1 {
+        font-size: 3.5em;
+    }
+
+    .temp {
+        font-size: 7em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 1.5em;
+    }
+
+    .city-time h1 {
+        font-size: 2em;
+    }
+
+    .temp {
+        font-size: 4em;
+    }
+
+    .panel {
+        padding: 1.5em;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .container {
+        padding: 1em;
+    }
+
+    .city-time h1 {
+        font-size: 1.8em;
+    }
+
+    .temp {
+        font-size: 3.5em;
+    }
+
+    .panel {
+        padding: 1em;
+    }
+
+    .search {
+        font-size: 0.9em;
+    }
 }
