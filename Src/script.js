@@ -84,7 +84,7 @@ function fetchWeatherData() {
             const iconId = data.current.condition.icon.substr(
                 "//cdn.weatherapi.com/weather/64x64/".length
             );
-            icon.src = "../icons/" + iconId;
+            icon.src = "/Real-Weather-WebApp/icons/" + iconId;
             changeFavicon(icon.src);
 
 
@@ -100,7 +100,7 @@ function fetchWeatherData() {
 
             if (code == 1000) {
                 app.style.backgroundImage = `
-                url(../Images/${timeOfDay}/clear.jpg)`;
+                url(/Real-Weather-WebApp/Images/${timeOfDay}/clear.jpg)`;
 
                 btn.style.background = "#e5ba92";
                 if (timeOfDay == "night") {
@@ -119,7 +119,7 @@ function fetchWeatherData() {
                 code == 1279 ||
                 code == 1282
             ) {
-                app.style.backgroundImage = `url(../Images/${timeOfDay}/cloudy.jpg)`;
+                app.style.backgroundImage = `url(/Real-Weather-WebApp/Images/${timeOfDay}/cloudy.jpg)`;
                 btn.style.background = "#fa6d1b";
                 if (timeOfDay == "night") {
                     btn.style.background = "#181e27";
@@ -144,13 +144,13 @@ function fetchWeatherData() {
                 code == 1249 ||
                 code == 1252
             ) {
-                app.style.backgroundImage = `url(../Images/${timeOfDay}/rainy.jpg)`;
+                app.style.backgroundImage = `url(/Real-Weather-WebApp/Images/${timeOfDay}/rainy.jpg)`;
                 btn.style.background = "#647d75";
                 if (timeOfDay == "night") {
                     btn.style.background = "#325c80";
                 }
             } else {
-                app.style.backgroundImage = `url(../Images/${timeOfDay}/snowy.jpg)`;
+                app.style.backgroundImage = `url(/Real-Weather-WebApp/Images/${timeOfDay}/snowy.jpg)`;
                 if (timeOfDay == "night") {
                     btn.style.background = "#1b1b1b";
                 }
